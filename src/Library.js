@@ -23,20 +23,20 @@ function addBook(library, book) {
 
 //SPACING???
 
-// function checkoutBook(library, title, genre) {
-//   //check for a specifc objects
-//   var newGenre = """ + genre + """
-//   if (library.shelves.newGenre.includes(title)) {
-//     console.log('true')
-//     // library.shelves.genre.splice(0, 1);
-//     // return `You have now checked out ${title} from the ${library}`
-//   }
-//   // remove said objects fromt he right genre arrays
-//   // return the phrase ''
-// }
+
+function checkoutBook(library, title, genre) {
+ //Iterate through the three shelves and see if title is strictly ==
+ for (i = 0; i < library.shelves[genre].length; i++) {
+   if (library.shelves[genre][i].title === title) {
+     library.shelves[genre].splice(i, 1)
+     return `You have now checked out ${title} from the ${library.name}`
+   }
+ }
+ return `Sorry, there are currently no copies of ${title} available at the ${library.name}`
+};
 
 module.exports = {
   createLibrary,
   addBook,
-  // checkoutBook,
+  checkoutBook,
 };
