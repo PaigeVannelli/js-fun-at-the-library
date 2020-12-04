@@ -22,12 +22,21 @@ function listTitles(shelf) {
 
   return `${shelf[0].title}, ${shelf[1].title}, ${shelf[2].title}`;
 }
+// NEED TO REVIEW AND REFACTOR 
 
-
+function searchShelf(shelf, title) {
+  for (i = 0; i < shelf.length; i++) {
+    if (shelf[i].title === title) {
+      return true;
+    }
+  }
+  return false
+}
+// REVIEW AND REFACTOR
 
 module.exports = {
   shelfBook,
   unshelfBook,
   listTitles,
-  // searchShelf
+  searchShelf
 };
