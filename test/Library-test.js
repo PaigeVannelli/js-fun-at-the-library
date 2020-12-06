@@ -24,7 +24,7 @@ describe("library.js", function() {
       assert.equal(goldenLibrary.name, "Golden Public Library");
     });
 
-    it.only("should have shelves", function() {
+    it("should have shelves", function() {
       var denverLibrary = createLibrary("Denver Public Library");
 
       assert.isObject(denverLibrary.shelves);
