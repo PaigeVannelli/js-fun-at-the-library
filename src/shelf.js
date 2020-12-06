@@ -4,35 +4,38 @@ function shelfBook(book, shelf) {
   }
 };
 
-function unshelfBook(title, shelf) {
+function unshelfBook(bookTitle, shelf) {
   for (i = 0; i < shelf.length; i++) {
-    if (shelf[i].title === title) {
+    if (shelf[i].title === bookTitle) {
       shelf.splice(i, 1);
     };
   }
 };
 
 function listTitles(shelf) {
-//   var listOfTitles = [];
-//   for (i = 0; i < shelf.length; i++) {
-//     listOfTitles.push(shelf[i].title);
-//   }
-//   console.log(listOfTitles);
-// };
-
-  return `${shelf[0].title}, ${shelf[1].title}, ${shelf[2].title}`;
-}
-// NEED TO REVIEW AND REFACTOR 
+  var listOfTitles = '';
+  for (var i = 0; i < shelf.length; i++) {
+    if (i < shelf.length - 1){
+      listOfTitles += shelf[i].title + ', ';
+    } else {
+      listOfTitles += shelf[i].title;
+    };
+  };
+  return listOfTitles;
+};
 
 function searchShelf(shelf, title) {
+  var isOnShelf = false;
   for (i = 0; i < shelf.length; i++) {
     if (shelf[i].title === title) {
-      return true;
-    }
-  }
-  return false
-}
-// REVIEW AND REFACTOR
+      isOnShelf = true;
+    } else {
+      isOnShelf = false;
+    };
+  };
+  return isOnShelf;
+};
+
 
 module.exports = {
   shelfBook,
